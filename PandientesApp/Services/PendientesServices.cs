@@ -16,13 +16,13 @@ namespace PandientesApp.Services
         {
             cliet = new HttpClient()
             {
-                BaseAddress = new Uri("https://pendintes.sistemas19.com")
+                BaseAddress = new Uri("https://pendientes.sistemas19.com/")
             };
 
         }
         public async Task<List<Actividad>> GetAll()
         {
-            var result = await cliet.GetAsync("api/pendientes");//peticion regresa un response
+            HttpResponseMessage result = await cliet.GetAsync("api/pendientes");//peticion regresa un response
             if(result.IsSuccessStatusCode)//verificar si la respuesta fue existosa
             {
                 var json= await result.Content.ReadAsStringAsync();
@@ -30,6 +30,18 @@ namespace PandientesApp.Services
                 return lista;
             }
             return new List<Actividad>();
+        }
+        public async Task Insert(Actividad a)
+        {
+            var json = JsonConvert.SerializeObject(a);
+            StringContent scontent = new StringContent(json, Encoding.UTF8, "application/json");
+            var result = await cliet.PostAsync("api/pendientes",scontent);
+            if (!result.IsSuccessStatusCode)
+            {
+                json = await result.Content.ReadAsStringAsync();
+                string s = JsonConvert.DeserializeObject<string>(json);
+                throw new Exception($"Ha ocurrido un error: {result.StatusCode}\n{s}");
+            }
         }
     }
 }
