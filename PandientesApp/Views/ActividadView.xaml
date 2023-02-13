@@ -4,10 +4,14 @@
              x:Class="PandientesApp.Views.ActividadView"
              Title="Nueva actividad">
     <ContentPage.ToolbarItems>
-        <ToolbarItem Text="Guardar"></ToolbarItem>
+        <ToolbarItem Text="Guardar" Clicked="ToolbarItem_Clicked" ></ToolbarItem>
         <ToolbarItem Text="Eliminar" Order="Secondary"></ToolbarItem>
     </ContentPage.ToolbarItems>
-    <Editor Margin="10">
+    <Grid RowDefinitions="*,auto">
+         <Editor Margin="10">
         
-    </Editor>
+         </Editor>
+      <Label Grid.Row="1" Text="{Binding Error}" TextColor="red" HorizontalTextAlignment="Center"></Label>
+    </Grid>
+   
 </ContentPage>

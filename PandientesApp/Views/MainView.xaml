@@ -5,7 +5,7 @@
              x:Class="PandientesApp.Views.MainView"
              Title="Lista de Pendientes uwu">
     <ContentPage.BindingContext>
-        <vm:PendientesViewModel></vm:PendientesViewModel>
+        <vm:PendientesViewModel x:Name="vmp"></vm:PendientesViewModel>
     </ContentPage.BindingContext>
     <ContentPage.ToolbarItems>
         <ToolbarItem Text="Agregar"></ToolbarItem>
@@ -14,7 +14,13 @@
          <CollectionView ItemsSource="{Binding Actividades}">
         <CollectionView.ItemTemplate>
             <DataTemplate>
-                <Label Text="{Binding Descripcion}"></Label>
+                <Label Text="{Binding Descripcion}">
+                        <Label.GestureRecognizers>
+                            <TapGestureRecognizer Command="{Binding Source={x:Reference vmp}, Path=SeleccionarCommand}" CommandParameter="{Binding .}">
+                                
+                            </TapGestureRecognizer>
+                        </Label.GestureRecognizers>
+                </Label>
             </DataTemplate>
         </CollectionView.ItemTemplate>
         </CollectionView>

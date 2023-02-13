@@ -6,15 +6,16 @@ using System.Linq;
 using System.Text;
 using System.Text.Json.Serialization;
 using System.Threading.Tasks;
+using ThreadNetwork;
 
 namespace PandientesApp.Services
 {
     public class PendientesServices
     {
-        HttpClient cliet;
+        HttpClient client;
         public PendientesServices()
         {
-            cliet = new HttpClient()
+            client = new HttpClient()
             {
                 BaseAddress = new Uri("https://pendientes.sistemas19.com/")
             };
@@ -22,7 +23,7 @@ namespace PandientesApp.Services
         }
         public async Task<List<Actividad>> GetAll()
         {
-            HttpResponseMessage result = await cliet.GetAsync("api/pendientes");//peticion regresa un response
+            HttpResponseMessage result = await client.GetAsync("api/pendientes");//peticion regresa un response
             if(result.IsSuccessStatusCode)//verificar si la respuesta fue existosa
             {
                 var json= await result.Content.ReadAsStringAsync();
@@ -35,7 +36,19 @@ namespace PandientesApp.Services
         {
             var json = JsonConvert.SerializeObject(a);
             StringContent scontent = new StringContent(json, Encoding.UTF8, "application/json");
-            var result = await cliet.PostAsync("api/pendientes",scontent);
+            var result = await client.PostAsync("api/pendientes",scontent);
+            if (!result.IsSuccessStatusCode)
+            {
+                json = await result.Content.ReadAsStringAsync();
+                string s = JsonConvert.DeserializeObject<string>(json);
+                throw new Exception($"Ha ocurrido un error: {result.StatusCode}\n{s}");
+            }
+        }
+        public async Task Update(Actividad a)
+        {
+            var json = JsonConvert.SerializeObject(a);
+            StringContent scontent = new StringContent(json, Encoding.UTF8, "application/json");
+            var result = await client.PutAsync("api/pendientes", scontent);
             if (!result.IsSuccessStatusCode)
             {
                 json = await result.Content.ReadAsStringAsync();
