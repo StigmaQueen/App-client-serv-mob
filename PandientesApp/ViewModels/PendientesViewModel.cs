@@ -20,6 +20,7 @@ namespace PandientesApp.ViewModels
         public ICommand NuevoCommand { get; set; }
         public ICommand GuardarCommand { get; set; }
         public ICommand SeleccionarCommand { get; set; }
+        public ICommand EliminarCommand { get; set; }
         public ObservableCollection<Actividad> Actividades { get; set; } = new ObservableCollection<Actividad>();
         public string Error { get; set; }
         public Actividad Actividad { get; set; }
@@ -29,11 +30,27 @@ namespace PandientesApp.ViewModels
             NuevoCommand = new Command(Nuevo);
             GuardarCommand = new Command(Guardar);
             SeleccionarCommand = new Command<Actividad>(Seleccionar);
+            EliminarCommand = new Command(Eliminar);
 
             Connectivity.ConnectivityChanged += Connectivity_ConnectivityChanged;
-            ServicePendientes= new PendientesServices();
-             _= CargarDatos();
-            
+            ServicePendientes = new PendientesServices();
+            _ = CargarDatos();
+
+        }
+
+        private async void Eliminar()
+        {
+            if (Connectivity.Current.NetworkAccess == NetworkAccess.Internet && Actividad.Id != 0)
+            {
+                var opcion = await Application.Current.MainPage.DisplayAlert("Confirme la eliminacion", "Está seguro de eliminar la actividad?", "Si", "No");
+                if (opcion)
+                {
+                    await ServicePendientes.Delete(Actividad);
+                    await Application.Current.MainPage.Navigation.PopAsync();
+                    await CargarDatos();
+                }
+            }
+
         }
 
         private async void Seleccionar(Actividad a)
@@ -67,7 +84,7 @@ namespace PandientesApp.ViewModels
                 }
                 else
                 {
-                    if(Connectivity.Current.NetworkAccess!=NetworkAccess.Internet)
+                    if (Actividad.Id == 0)
                     {
                         await ServicePendientes.Insert(Actividad);
                     }
@@ -75,7 +92,7 @@ namespace PandientesApp.ViewModels
                     {
                         await ServicePendientes.Update(Actividad);
                     }
-                    await ServicePendientes.Insert(Actividad);
+                    
                     _ = CargarDatos();
                     await Application.Current.MainPage.Navigation.PopAsync();
                 }
@@ -114,9 +131,9 @@ namespace PandientesApp.ViewModels
 
         async Task CargarDatos()
         {
-            if(Connectivity.Current.NetworkAccess==NetworkAccess.Internet) //Verficar si hay conexión a internet
+            if (Connectivity.Current.NetworkAccess == NetworkAccess.Internet) //Verficar si hay conexión a internet
             {
-                var lista= await ServicePendientes.GetAll();
+                var lista = await ServicePendientes.GetAll();
                 Actividades.Clear();
                 lista.ForEach(a => Actividades.Add(a));
                 Error = "";
@@ -124,7 +141,7 @@ namespace PandientesApp.ViewModels
             else
             {
                 Error = "No hay conexión internet";
-             
+
             }
             Actualizar();
         }

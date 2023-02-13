@@ -8,7 +8,7 @@
         <vm:PendientesViewModel x:Name="vmp"></vm:PendientesViewModel>
     </ContentPage.BindingContext>
     <ContentPage.ToolbarItems>
-        <ToolbarItem Text="Agregar"></ToolbarItem>
+        <ToolbarItem Text="Agregar" Command="{Binding NuevoCommand}"></ToolbarItem>
     </ContentPage.ToolbarItems>
     <Grid RowDefinitions="*,auto">
          <CollectionView ItemsSource="{Binding Actividades}">

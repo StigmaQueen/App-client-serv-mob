@@ -2,13 +2,27 @@
 <ContentPage xmlns="http://schemas.microsoft.com/dotnet/2021/maui"
              xmlns:x="http://schemas.microsoft.com/winfx/2009/xaml"
              x:Class="PandientesApp.Views.ActividadView"
-             Title="Nueva actividad">
+             xmlns:vm="clr-namespace:PandientesApp.ViewModels"
+              x:DataType="vm:PendientesViewModel"
+             >
+    <ContentPage.Style>
+        <Style TargetType="ContentPage">
+            <Setter Property="Title" Value="Datos de la actividad"></Setter>
+            <Style.Triggers>
+                <DataTrigger TargetType="ContentPage" Binding="{Binding Actividad.Id}" Value="0">
+                    <Setter Property="Title" Value="Nueva Actividad"></Setter>
+                </DataTrigger>
+            </Style.Triggers>
+        </Style>
+    </ContentPage.Style>
     <ContentPage.ToolbarItems>
         <ToolbarItem Text="Guardar" Clicked="ToolbarItem_Clicked" ></ToolbarItem>
-        <ToolbarItem Text="Eliminar" Order="Secondary"></ToolbarItem>
+        <ToolbarItem Text="Eliminar" Command="{Binding EliminarCommand}" Order="Secondary">
+            
+        </ToolbarItem>
     </ContentPage.ToolbarItems>
     <Grid RowDefinitions="*,auto">
-         <Editor Margin="10">
+         <Editor Text="{Binding Actividad.Descripcion}" x:Name="editor1" Margin="10">
         
          </Editor>
       <Label Grid.Row="1" Text="{Binding Error}" TextColor="red" HorizontalTextAlignment="Center"></Label>

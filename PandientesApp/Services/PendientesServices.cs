@@ -1,12 +1,6 @@
 ﻿using Newtonsoft.Json;
 using PandientesApp.Models;
-using System;
-using System.Collections.Generic;
-using System.Linq;
 using System.Text;
-using System.Text.Json.Serialization;
-using System.Threading.Tasks;
-using ThreadNetwork;
 
 namespace PandientesApp.Services
 {
@@ -52,6 +46,17 @@ namespace PandientesApp.Services
             if (!result.IsSuccessStatusCode)
             {
                 json = await result.Content.ReadAsStringAsync();
+                string s = JsonConvert.DeserializeObject<string>(json);
+                throw new Exception($"Ha ocurrido un error: {result.StatusCode}\n{s}");
+            }
+        }
+        public async Task Delete(Actividad a)
+        {
+         
+            var result = await client.DeleteAsync("api/pendientes"+ a.Id);
+            if (!result.IsSuccessStatusCode)
+            {
+                var json = await result.Content.ReadAsStringAsync();
                 string s = JsonConvert.DeserializeObject<string>(json);
                 throw new Exception($"Ha ocurrido un error: {result.StatusCode}\n{s}");
             }
