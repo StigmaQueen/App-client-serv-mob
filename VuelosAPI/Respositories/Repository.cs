@@ -10,7 +10,7 @@ namespace VuelosAPI.Respositories
         {
             this.context = context;
         } 
-        public DbSet<T> Get()
+        public DbSet<T> GetAll()
         {
             return context.Set<T>();
         }
