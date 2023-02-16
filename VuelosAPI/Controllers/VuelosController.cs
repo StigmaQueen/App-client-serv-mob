@@ -9,11 +9,10 @@ namespace VuelosAPI.Controllers
     [ApiController]
     public class VuelosController : ControllerBase
     {
-        public Sistem21AerolineaDbContext context { get; set; }
         public Repository<Vuelo> Repository { get; set; }
         public VuelosController(Sistem21AerolineaDbContext context)
         {
-            this.context = context;
+   
             Repository = new Repository<Vuelo>(context);
         }
         public IActionResult Get()
