@@ -24,7 +24,7 @@
                 <ColumnDefinition Width=".2*" ></ColumnDefinition>
 
             </Grid.ColumnDefinitions>
-            <Image Source="/Assets/halcon1.png" HeightRequest="150" WidthRequest="150" />
+            <Image Source="/halcon1.png" HeightRequest="150" WidthRequest="150" />
 
             <Label Grid.ColumnSpan="5" HorizontalTextAlignment="Center" FontFamily="Neo Sans Std Medium" FontSize="80" TextColor="White" >AeroTEC</Label>
             <Label FontAttributes="Bold" TextColor="White" Grid.Row="1" HorizontalTextAlignment="Center" FontSize="20" >TIME</Label>
