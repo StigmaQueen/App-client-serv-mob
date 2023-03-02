@@ -3,10 +3,93 @@
              xmlns:x="http://schemas.microsoft.com/winfx/2009/xaml"
              x:Class="PantallaVueloMAUI.Views.MainView"
              Title="MainView">
-    <VerticalStackLayout>
-        <Label 
-            Text="Welcome to .NET MAUI!"
-            VerticalOptions="Center" 
-            HorizontalOptions="Center" />
-    </VerticalStackLayout>
+    <Grid Background="#FF1F1F1F">
+        <Grid.RowDefinitions>
+            <RowDefinition Height="auto" ></RowDefinition>
+            <RowDefinition  ></RowDefinition>
+
+        </Grid.RowDefinitions>
+
+        <Grid>
+            <Grid.RowDefinitions>
+                <RowDefinition Height="auto" ></RowDefinition>
+                <RowDefinition Height="auto" ></RowDefinition>
+
+            </Grid.RowDefinitions>
+            <Grid.ColumnDefinitions>
+                <ColumnDefinition Width=".2*" ></ColumnDefinition>
+                <ColumnDefinition Width=".2*" ></ColumnDefinition>
+                <ColumnDefinition Width=".2*" ></ColumnDefinition>
+                <ColumnDefinition Width=".2*" ></ColumnDefinition>
+                <ColumnDefinition Width=".2*" ></ColumnDefinition>
+
+            </Grid.ColumnDefinitions>
+            <Image Source="/Assets/halcon1.png" HeightRequest="150" WidthRequest="150" />
+
+            <Label Grid.ColumnSpan="5" HorizontalTextAlignment="Center" FontFamily="Neo Sans Std Medium" FontSize="80" TextColor="White" >AeroTEC</Label>
+            <Label FontAttributes="Bold" TextColor="White" Grid.Row="1" HorizontalTextAlignment="Center" FontSize="20" >TIME</Label>
+            <Label FontAttributes="Bold"   TextColor="White" Grid.Column="1" Grid.Row="1" HorizontalTextAlignment="Center" FontSize="20" >DESTINATION</Label>
+            <Label FontAttributes="Bold"   TextColor="White" Grid.Column="2" Grid.Row="1" HorizontalTextAlignment="Center" FontSize="20" >FLIGHT</Label>
+            <Label  FontAttributes="Bold"  TextColor="White" Grid.Column="3" Grid.Row="1" HorizontalTextAlignment="Center" FontSize="20" >GATE</Label>
+            <Label FontAttributes="Bold"  TextColor="White" Grid.Column="4" Grid.Row="1" HorizontalTextAlignment="Center" FontSize="20" >REMARKS</Label>
+        </Grid>
+
+
+
+        <ScrollView Grid.Row="1">
+            <CollectionView ItemsSource="{Binding AerolineaList}">
+                <CollectionView.ItemsLayout>
+                    <LinearItemsLayout Orientation="Vertical"></LinearItemsLayout>
+                </CollectionView.ItemsLayout>
+
+                <CollectionView.ItemTemplate>
+                    <DataTemplate>
+
+                        <Grid Width="1680" >
+                            <Grid.RowDefinitions>
+                                <RowDefinition Height="auto" ></RowDefinition>
+                            </Grid.RowDefinitions>
+                            <Grid.ColumnDefinitions>
+                                <ColumnDefinition Width=".2*" ></ColumnDefinition>
+                                <ColumnDefinition Width=".2*" ></ColumnDefinition>
+                                <ColumnDefinition Width=".2*" ></ColumnDefinition>
+                                <ColumnDefinition Width=".2*" ></ColumnDefinition>
+                                <ColumnDefinition Width=".2*" ></ColumnDefinition>
+
+                            </Grid.ColumnDefinitions>
+
+                            <Label FontFamily="CarlosFont" TextColor="#FFE2B949" Margin="1,5" HorizontalTextAlignment="Center" FontSize="25" Text="{Binding Time}" Background="#FF252323" ></Label>
+                            <Label FontFamily="CarlosFont" TextColor="#FFE2B949" Margin="1,5"   HorizontalTextAlignment="Center" Grid.Column="1"  FontSize="30" Text="{Binding Destination}" Background="#FF252323" ></Label>
+                            <Label FontFamily="CarlosFont" TextColor="#FFE2B949" Margin="1,5"   HorizontalTextAlignment="Center" Grid.Column="2" FontSize="30" Text="{Binding Flight}" Background="#FF252323" ></Label>
+                            <Label FontFamily="CarlosFont" TextColor="#FFE2B949" Margin="1,5"  HorizontalTextAlignment="Center" Grid.Column="3" FontSize="30" Text="{Binding Gate}" Background="#FF252323" ></Label>
+                            <Label FontFamily="CarlosFont" TextColor="#FFE2B949" Margin="1,5"  HorizontalTextAlignment="Center" Grid.Column="4" FontSize="30" Text="{Binding Remarks}" Background="#FF252323" ></Label>
+
+                        </Grid>
+
+
+                    </DataTemplate>
+                </CollectionView.ItemTemplate>
+            </CollectionView>
+        </ScrollView>
+        <!--<Grid>
+            <Grid.RowDefinitions>
+                <RowDefinition  Height="auto"></RowDefinition>
+            </Grid.RowDefinitions>
+            <Grid.ColumnDefinitions>
+                <ColumnDefinition Width=".2*" ></ColumnDefinition>
+                <ColumnDefinition Width=".2*" ></ColumnDefinition>
+                <ColumnDefinition Width=".2*" ></ColumnDefinition>
+                <ColumnDefinition Width=".2*" ></ColumnDefinition>
+                <ColumnDefinition Width=".2*" ></ColumnDefinition>
+            </Grid.ColumnDefinitions>
+            <Label HorizontalTextAlignment="Center" FontSize="20" >pene</Label>
+            <Label HorizontalTextAlignment="Center" Grid.Column="1" FontSize="20" >pene</Label>
+            <Label HorizontalTextAlignment="Center" Grid.Column="2" FontSize="20" >pene</Label>
+            <Label HorizontalTextAlignment="Center" Grid.Column="3" FontSize="20" >pene</Label>
+            <Label HorizontalTextAlignment="Center" Grid.Column="4" FontSize="20" >pene</Label>
+       
+        </Grid>-->
+
+
+    </Grid>
 </ContentPage>
