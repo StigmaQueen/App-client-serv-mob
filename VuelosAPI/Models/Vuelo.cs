@@ -16,4 +16,6 @@ public partial class Vuelo
     public string Estado { get; set; } = null!;
 
     public DateTime Fecha { get; set; }
+
+    public DateTime UltimaEdicionFecha { get; set; }
 }
