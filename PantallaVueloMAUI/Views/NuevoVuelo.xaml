@@ -1,0 +1,19 @@
+<?xml version="1.0" encoding="utf-8" ?>
+<ContentPage xmlns="http://schemas.microsoft.com/dotnet/2021/maui"
+             xmlns:x="http://schemas.microsoft.com/winfx/2009/xaml"
+             x:Class="PantallaVueloMAUI.Views.NuevoVuelo"
+             Title="NuevoVuelo">
+    <ContentPage.ToolbarItems>
+        <ToolbarItem Text="Agregar"></ToolbarItem>
+    </ContentPage.ToolbarItems>
+    <VerticalStackLayout>
+        <Label Text="Numero de vuelo:"></Label>
+        <Entry ></Entry>
+        <Label Text="Destino:"></Label>
+        <Entry></Entry>
+        <Label Text="Fecha de salida:"></Label>
+        <DatePicker></DatePicker>
+
+        <Label Margin="10" FontSize="Small" Text="red" HorizontalTextAlignment="Center"></Label>
+    </VerticalStackLayout>
+</ContentPage>

@@ -6,7 +6,9 @@
         {
             InitializeComponent();
 
-            MainPage = new Views.MainView();
+            Routing.RegisterRoute("estado",typeof(Views.EstadosView));
+
+            MainPage=new AppShell();
         }
     }
 }

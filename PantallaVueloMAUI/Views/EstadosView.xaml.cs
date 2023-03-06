@@ -1,8 +1,8 @@
 namespace PantallaVueloMAUI.Views;
 
-public partial class MainView : ContentPage
+public partial class EstadosView : ContentPage
 {
-	public MainView()
+	public EstadosView()
 	{
 		InitializeComponent();
 	}

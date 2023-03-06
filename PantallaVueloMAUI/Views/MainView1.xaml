@@ -1,8 +1,8 @@
 <?xml version="1.0" encoding="utf-8" ?>
 <ContentPage xmlns="http://schemas.microsoft.com/dotnet/2021/maui"
              xmlns:x="http://schemas.microsoft.com/winfx/2009/xaml"
-             x:Class="PantallaVueloMAUI.Views.MainView"
-             Title="MainView">
+             x:Class="PantallaVueloMAUI.Views.MainView1"
+             Title="MainView1" Shell.NavBarIsVisible="False">
     <Grid Background="#FF1F1F1F">
         <Grid.RowDefinitions>
             <RowDefinition Height="auto" ></RowDefinition>

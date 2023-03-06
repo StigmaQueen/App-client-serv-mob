@@ -1,0 +1,19 @@
+<?xml version="1.0" encoding="utf-8" ?>
+<Shell xmlns="http://schemas.microsoft.com/dotnet/2021/maui"
+             xmlns:x="http://schemas.microsoft.com/winfx/2009/xaml"
+             x:Class="PantallaVueloMAUI.AppShell"
+             xmlns:views="clr-namespace:PantallaVueloMAUI.Views"
+             Title="AppShell" >
+    <FlyoutItem Title="Principal">
+        <ShellContent Route="principal">
+            <views:MainView1></views:MainView1>
+        </ShellContent>
+    </FlyoutItem>
+    
+    <FlyoutItem Title="Nuevo Vuelo">
+        <ShellContent Route="nuevo">
+            <views:NuevoVuelo></views:NuevoVuelo>
+        </ShellContent>
+    </FlyoutItem>
+    
+</Shell>
