@@ -8,14 +8,17 @@ using System.Text.Json.Serialization;
 using System.Threading.Tasks;
 using PantallaVueloMAUI.Models;
 using PantallaVueloMAUI.Repositories;
-
+using Microsoft.UI.Xaml.Controls;
 
 namespace PantallaVueloMAUI.Services
 {
     public class VueloServices
     {
         HttpClient client;
-        VueloRepository repository = new VueloRepository();
+        VueloRepository<Vuelo> repository = new ();
+        VueloRepository<VueloBuffer> bufferRep = new();
+        public string Errors { get; private set; }
+
 
         //Sincronizador de microservicios
         public VueloServices() 
@@ -55,6 +58,108 @@ namespace PantallaVueloMAUI.Services
               
             }
             return repository.GetAll();
+        }
+        public async Task<bool> PostAsync(Vuelo v)
+        {
+            Errors = "";
+            if (Connectivity.Current.NetworkAccess == NetworkAccess.Internet)
+            {
+                var json = JsonConvert.SerializeObject(v);
+                var response = await client.PostAsync("api/vuelos", new StringContent(json, Encoding.UTF8, "application/json"));
+                if (response.IsSuccessStatusCode)
+                {
+                    return true;
+                }
+                else
+                {
+                    Errors = await response.Content.ReadAsStringAsync();
+                    return false;
+                }
+            }
+            else
+            {
+                //Si no hay internet agregamos al buffer
+                VueloBuffer vb = new VueloBuffer
+                {
+                    Destino = v.Destino,
+                    Estado = v.Estado,
+                    Fecha = v.Fecha,
+                    Numerovuelo = v.Numerovuelo,
+                    Puerta = v.Puerta,
+                    Status = State.Agregado
+
+                };
+                bufferRep.Insert(vb);
+                return true;
+            }
+        }
+        public async Task<bool> PutAsync(Vuelo v)
+        {
+            Errors = "";
+            if (Connectivity.Current.NetworkAccess == NetworkAccess.Internet)
+            {
+                var json = JsonConvert.SerializeObject(v);
+                var response = await client.PutAsync("api/vuelos", new StringContent(json, Encoding.UTF8, "application/json"));
+                if (response.IsSuccessStatusCode)
+                {
+                    return true;
+                }
+                else
+                {
+                    Errors = await response.Content.ReadAsStringAsync();
+                    return false;
+                }
+            }
+            else
+            {
+                //Si no hay internet agregamos al buffer
+                VueloBuffer vb = new VueloBuffer
+                {
+                    Destino = v.Destino,
+                    Estado = v.Estado,
+                    Fecha = v.Fecha,
+                    Numerovuelo = v.Numerovuelo,
+                    Puerta = v.Puerta,
+                    Status = State.Modificado
+
+                };
+                bufferRep.Insert(vb);
+                return true;
+            }
+        }
+        public async Task<bool> DeleteAsync(Vuelo v)
+        {
+            Errors = "";
+            if (Connectivity.Current.NetworkAccess == NetworkAccess.Internet)
+            {
+             
+                var response = await client.DeleteAsync("api/vuelos/"+v.Id);
+                if (response.IsSuccessStatusCode)
+                {
+                    return true;
+                }
+                else
+                {
+                    Errors = await response.Content.ReadAsStringAsync();
+                    return false;
+                }
+            }
+            else
+            {
+                //Si no hay internet agregamos al buffer
+                VueloBuffer vb = new VueloBuffer
+                {
+                    Destino = v.Destino,
+                    Estado = v.Estado,
+                    Fecha = v.Fecha,
+                    Numerovuelo = v.Numerovuelo,
+                    Puerta = v.Puerta,
+                    Status = State.Eliminado
+
+                };
+                bufferRep.Insert(vb);
+                return true;
+            }
         }
     }
 }

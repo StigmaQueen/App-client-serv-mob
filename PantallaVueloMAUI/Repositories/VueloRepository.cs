@@ -7,32 +7,34 @@ using System.Threading.Tasks;
 using PantallaVueloMAUI.Models;
 using SQLite;
 using PantallaVueloMAUI.Helpers;
+using Windows.Gaming.Input;
 
 namespace PantallaVueloMAUI.Repositories
 {
-    public class VueloRepository
+    public class VueloRepository<T> where T: new ()
     {
         SQLiteConnection context;
         public VueloRepository()
         {
             context = new SQLiteConnection(DatabaseHelper.RutaBD);
             context.CreateTable<Vuelo>();
+            context.CreateTable<VueloBuffer>();
         }
-        public List<Vuelo> GetAll()
+        public TableQuery<T> GetAll()
         {
-            return new List<Vuelo>();
+            return context.Table<T>();
         }
-        public List<Vuelo> Get(int Id)
+        public T Get(int Id)
         {
-            return new List<Vuelo>(Id);
+            return context.Get<T>(Id);  
         }
-        public void Insert(Vuelo v)
+        public void Insert(T t)
         {
-            context.Insert(v);
+            context.Insert(t);
         }
-        public void Update(Vuelo v)
+        public void Update(T t)
         {
-            context.Update(v);
+            context.Update(t);
         }
         public void Delete(int Id)
         {
