@@ -11,7 +11,7 @@ namespace PantallaVueloMAUI.Models
     public class VueloBuffer
     {
         //Para controlar el buffer
-        [AutoIncrement]
+        [PrimaryKey,AutoIncrement]
         public int Id { get; set; } 
         public State Status { get; set; }
 
