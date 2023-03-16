@@ -18,9 +18,9 @@ namespace VuelosAPI.Controllers
         public IActionResult Get()
         {
             return Ok(repository.Get().OrderBy(x => x.Fecha).ThenBy(x => x.Numerovuelo)
-                .Where(x => (x.Estado != Estados.Cancelado || x.Estado != Estados.EnVuelo || x.Estado != Estados.Desviado || x.Estado != Estados.Aterrizo)
-                &&
-                (x.UltimaEdicionFecha.AddMinutes(2) > DateTime.Now)));
+                .Where(x => (x.Estado != Estados.Cancelado && x.Estado != Estados.EnVuelo && x.Estado != Estados.Desviado && x.Estado != Estados.Aterrizo)
+                ||
+                (x.UltimaEdicionFecha.AddMinutes(1) > DateTime.Now)));
         }
         [HttpPost]
         public IActionResult Post(Vuelo vuelo)

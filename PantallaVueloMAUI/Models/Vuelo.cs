@@ -1,4 +1,5 @@
-﻿using System;
+﻿using SQLite;
+using System;
 using System.Collections.Generic;
 using System.Linq;
 using System.Text;
@@ -8,6 +9,7 @@ namespace PantallaVueloMAUI.Models
 {
    public class Vuelo
     {
+        [PrimaryKey]
         public int Id { get; set; }
 
         public string Destino { get; set; } = null!;

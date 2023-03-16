@@ -32,7 +32,7 @@
             <Label FontAttributes="Bold" TextColor="White" Grid.Row="1" HorizontalTextAlignment="Center" FontSize="20" >TIME</Label>
             <Label FontAttributes="Bold"   TextColor="White" Grid.Column="1" Grid.Row="1" HorizontalTextAlignment="Center" FontSize="20" >DESTINATION</Label>
             <Label FontAttributes="Bold"   TextColor="White" Grid.Column="2" Grid.Row="1" HorizontalTextAlignment="Center" FontSize="20" >FLIGHT</Label>
-            <Label  FontAttributes="Bold"  TextColor="White" Grid.Column="3" Grid.Row="1" HorizontalTextAlignment="Center" FontSize="20" >GATE</Label>
+            <Label FontAttributes="Bold"  TextColor="White" Grid.Column="3" Grid.Row="1" HorizontalTextAlignment="Center" FontSize="20" >GATE</Label>
             <Label FontAttributes="Bold"  TextColor="White" Grid.Column="4" Grid.Row="1" HorizontalTextAlignment="Center" FontSize="20" >REMARKS</Label>
         </Grid>
 

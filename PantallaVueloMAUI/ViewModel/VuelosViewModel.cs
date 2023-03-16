@@ -16,12 +16,15 @@ namespace PantallaVueloMAUI.ViewModel
 
         //Conbinacion de los dos tablas, la del buffer(local) y en la otra los datos reales. Modifica lo que el usario ve
         //en el VwiewModel
-        VueloServices service = new VueloServices();
-        VueloRepository<VueloBuffer>BufferRepositoriesVuelos { get; set; }= new VueloRepository<VueloBuffer>();
-        public ObservableCollection<Vuelo>  Vuelos { get; set; } = new ObservableCollection<Vuelo>();
+        VueloServices service;
+        VueloRepository<VueloBuffer> BufferRepositoriesVuelos = new();
+        public string MyProperty { get; set; } = "hola d.d";
+        public ObservableCollection<Vuelo> Vuelos { get; set; } = new ();
+        public Vuelo Vuelo { get; set; }
         public VuelosViewModel()
         {
-
+            service = new VueloServices();
+            Llenar();
         }
 
         async void Llenar()
@@ -39,20 +42,20 @@ namespace PantallaVueloMAUI.ViewModel
                 {
                     lista.Add(new Vuelo
                     {
-                        Id= 0,
-                        Destino= item.Destino,
-                       Estado= item.Estado, 
-                        Fecha= item.Fecha,
-                        Numerovuelo= item.Numerovuelo,
-                        Puerta= item.Puerta
+                        Id = 0,
+                        Destino = item.Destino,
+                        Estado = item.Estado,
+                        Fecha = item.Fecha,
+                        Numerovuelo = item.Numerovuelo,
+                        Puerta = item.Puerta
                     });
                 }
                 if (item.Status == State.Modificado)
                 {
-                    var anterior = lista.FirstOrDefault(x=>x.Numerovuelo==item.Numerovuelo);
+                    var anterior = lista.FirstOrDefault(x => x.Numerovuelo == item.Numerovuelo);
                     anterior.Destino = item.Destino;
                     anterior.Puerta = item.Puerta;
-                    anterior.Estado= item.Estado;
+                    anterior.Estado = item.Estado;
                 }
 
             }

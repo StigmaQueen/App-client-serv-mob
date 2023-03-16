@@ -8,7 +8,7 @@ using System.Text.Json.Serialization;
 using System.Threading.Tasks;
 using PantallaVueloMAUI.Models;
 using PantallaVueloMAUI.Repositories;
-using Microsoft.UI.Xaml.Controls;
+
 
 namespace PantallaVueloMAUI.Services
 {
@@ -41,7 +41,7 @@ namespace PantallaVueloMAUI.Services
                 foreach (var item in vuelos)
                 {
                     var  vuelo = repository.Get(item.Id);
-                    if(vuelo != null) 
+                    if(vuelo == null) 
                     {
                         repository.Insert(item);
                     }

@@ -1,4 +1,4 @@
-﻿using MetricKit;
+﻿
 using System;
 using System.Collections.Generic;
 using System.Linq;
@@ -7,7 +7,6 @@ using System.Threading.Tasks;
 using PantallaVueloMAUI.Models;
 using SQLite;
 using PantallaVueloMAUI.Helpers;
-using Windows.Gaming.Input;
 
 namespace PantallaVueloMAUI.Repositories
 {
@@ -26,7 +25,7 @@ namespace PantallaVueloMAUI.Repositories
         }
         public T Get(int Id)
         {
-            return context.Get<T>(Id);  
+            return context.Find<T>(Id);  
         }
         public void Insert(T t)
         {

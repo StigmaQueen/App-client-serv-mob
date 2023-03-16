@@ -6,7 +6,7 @@
        xmlns:views="clr-namespace:PantallaVueloMAUI.Views"
              Title="AppShell" >
     <Shell.BindingContext>
-        <vm:VuelosViewModel></vm:VuelosViewModel>
+        <vm:VuelosViewModel x:Name="vuelosVM"></vm:VuelosViewModel>
     </Shell.BindingContext>
     <FlyoutItem Title="Principal">
         <ShellContent Route="principal">
