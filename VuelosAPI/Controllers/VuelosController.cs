@@ -31,6 +31,7 @@ namespace VuelosAPI.Controllers
             }
             if (Validar(vuelo, out List<string> errores))
             {
+                vuelo.Estado = Estados.Programado;
                 vuelo.Id = 0;
                 vuelo.UltimaEdicionFecha= DateTime.Now;
                 repository.Insert(vuelo);

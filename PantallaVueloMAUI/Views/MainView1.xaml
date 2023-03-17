@@ -47,7 +47,7 @@
                 <CollectionView.ItemTemplate>
                     <DataTemplate x:DataType="m:Vuelo">
 
-                        <Grid Width="1680" >
+                        <Grid>
                             <Grid.RowDefinitions>
                                 <RowDefinition Height="auto" ></RowDefinition>
                             </Grid.RowDefinitions>
@@ -57,7 +57,6 @@
                                 <ColumnDefinition Width=".2*" ></ColumnDefinition>
                                 <ColumnDefinition Width=".2*" ></ColumnDefinition>
                                 <ColumnDefinition Width=".2*" ></ColumnDefinition>
-
                             </Grid.ColumnDefinitions>
 
                             <Label FontFamily="CarlosFont" TextColor="#FFE2B949" Margin="1,5" HorizontalTextAlignment="Center" FontSize="25" Text="{Binding Fecha}" Background="#FF252323" ></Label>
@@ -70,6 +69,7 @@
 
 
                     </DataTemplate>
+         
                 </CollectionView.ItemTemplate>
             </CollectionView>
         </ScrollView>

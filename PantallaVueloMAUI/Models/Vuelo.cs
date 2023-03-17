@@ -18,9 +18,9 @@ namespace PantallaVueloMAUI.Models
 
         public int Puerta { get; set; }
 
-        public string Estado { get; set; } = null!;
+        public string Estado { get; set; } = "";
 
-        public DateTime Fecha { get; set; }
+        public DateTime Fecha { get; set; } = DateTime.Now;
 
         public DateTime UltimaEdicionFecha { get; set; }
     }

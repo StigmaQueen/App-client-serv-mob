@@ -8,6 +8,7 @@ using System.ComponentModel;
 using System.Linq;
 using System.Text;
 using System.Threading.Tasks;
+using System.Windows.Input;
 
 namespace PantallaVueloMAUI.ViewModel
 {
@@ -18,13 +19,34 @@ namespace PantallaVueloMAUI.ViewModel
         //en el VwiewModel
         VueloServices service;
         VueloRepository<VueloBuffer> BufferRepositoriesVuelos = new();
-        public string MyProperty { get; set; } = "hola d.d";
-        public ObservableCollection<Vuelo> Vuelos { get; set; } = new ();
-        public Vuelo Vuelo { get; set; }
+        public string Error { get; set; } = "";
+        public ObservableCollection<Vuelo> Vuelos { get; set; } = new();
+        public Vuelo Vuelo { get; set; } = new();
+        public ICommand AgregarCommand { get; set; }
+
         public VuelosViewModel()
         {
             service = new VueloServices();
+            AgregarCommand = new Command(Agregar);
             Llenar();
+        }
+
+        private async void Agregar()
+        {
+            //Validar
+            var agg = await service.PostAsync(Vuelo);
+            if (agg)
+            {
+                Llenar();
+                Vuelo = new();
+                await Shell.Current.GoToAsync("//principal");
+            }
+            else
+            {
+                Error = service.Errors;
+                PropertyChanged?.Invoke(this, new PropertyChangedEventArgs(nameof(Error)));
+            }
+
         }
 
         async void Llenar()

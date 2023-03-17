@@ -2,18 +2,19 @@
 <ContentPage xmlns="http://schemas.microsoft.com/dotnet/2021/maui"
              xmlns:x="http://schemas.microsoft.com/winfx/2009/xaml"
              x:Class="PantallaVueloMAUI.Views.NuevoVuelo"
-             Title="NuevoVuelo">
+             xmlns:vm="clr-namespace:PantallaVueloMAUI.ViewModel"
+             Title="NuevoVuelo" x:DataType="vm:VuelosViewModel">
     <ContentPage.ToolbarItems>
-        <ToolbarItem Text="Agregar"></ToolbarItem>
+        <ToolbarItem Text="Agregar" Command="{Binding AgregarCommand}"></ToolbarItem>
     </ContentPage.ToolbarItems>
     <VerticalStackLayout>
         <Label Text="Numero de vuelo:"></Label>
-        <Entry ></Entry>
+        <Entry Text="{Binding Vuelo.Numerovuelo}" ></Entry>
         <Label Text="Destino:"></Label>
-        <Entry></Entry>
+        <Entry Text="{Binding Vuelo.Destino}"></Entry>
         <Label Text="Fecha de salida:"></Label>
-        <DatePicker></DatePicker>
+        <DatePicker Date="{Binding Vuelo.Fecha}"></DatePicker>
 
-        <Label Margin="10" FontSize="Small" Text="red" HorizontalTextAlignment="Center"></Label>
+        <Label Margin="10" FontSize="Small" Text="{Binding Error}" TextColor="red" HorizontalTextAlignment="Center"></Label>
     </VerticalStackLayout>
 </ContentPage>
