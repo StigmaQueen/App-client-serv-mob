@@ -14,17 +14,62 @@ namespace PantallaVueloMAUI.Services
 {
     public class VueloServices
     {
-        HttpClient client;
+
         VueloRepository<Vuelo> repository = new();
         VueloRepository<VueloBuffer> bufferRep = new();
         public string Errors { get; private set; }
 
 
         //Sincronizador de microservicios
+        HttpClient client;
+        Thread sincronizador;
         public VueloServices()
         {
             client = new HttpClient();
             client.BaseAddress = new Uri("https://aerolineatec.sistemas19.com/");
+            sincronizador = new Thread(new ThreadStart(Sincronizar));
+            sincronizador.IsBackground = true;
+            sincronizador.Start();
+        }
+        public event Action<IEnumerable<Vuelo>> VuelosActualizados;
+        private async void Sincronizar()
+        {
+            while (true)
+            {
+                Thread.Sleep(3000); //Dormirlo 30 segundos
+                if (Connectivity.Current.NetworkAccess == NetworkAccess.Internet)
+                {
+
+                    //Descargar de la api
+                    var response = await client.GetAsync("api/vuelos");
+                    response.EnsureSuccessStatusCode(); //Lanza una exeption si el status code no es un 200
+                    var json = await response.Content.ReadAsStringAsync();
+                    var vuelos = JsonConvert.DeserializeObject<List<Vuelo>>(json);
+                    bool actualizado = false;
+
+                    //Actualizacion en BD local
+                    foreach (var item in vuelos)
+                    {
+                        var vuelo = repository.Get(item.Id);
+                        if (vuelo == null)
+                        {
+                            repository.Insert(item);
+                            actualizado = true;
+                        }
+                        else
+                            repository.Update(item);
+                            actualizado = true;
+                    }
+                    foreach (var item in vuelos)
+                    {
+                        if (!vuelos.Any(x => x.Id == item.Id))
+                        {
+                            repository.Delete(item.Id);
+                            actualizado = true;
+                        }
+                    }
+                }
+            }
         }
 
         public async Task<IEnumerable<Vuelo>> GetAsync()

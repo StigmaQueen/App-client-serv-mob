@@ -13,7 +13,9 @@
         <Label Text="Destino:"></Label>
         <Entry Text="{Binding Vuelo.Destino}"></Entry>
         <Label Text="Fecha de salida:"></Label>
-        <DatePicker Date="{Binding Vuelo.Fecha}"></DatePicker>
+        <DatePicker Date="{Binding Vuelo.Date}"></DatePicker>
+        <Label Text="Hora de salida:"></Label>
+        <TimePicker Time="{Binding Vuelo.Hour}"></TimePicker>
 
         <Label Margin="10" FontSize="Small" Text="{Binding Error}" TextColor="red" HorizontalTextAlignment="Center"></Label>
     </VerticalStackLayout>
