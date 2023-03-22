@@ -31,7 +31,7 @@ namespace PantallaVueloMAUI.Services
             sincronizador.IsBackground = true;
             sincronizador.Start();
         }
-        public event Action<IEnumerable<Vuelo>> VuelosActualizados;
+        public event Action<List<Vuelo>> VuelosActualizados;
         private async void Sincronizar()
         {
             while (true)
@@ -60,13 +60,17 @@ namespace PantallaVueloMAUI.Services
                             repository.Update(item);
                             actualizado = true;
                     }
-                    foreach (var item in vuelos)
+                    foreach (var item in repository.GetAll())
                     {
                         if (!vuelos.Any(x => x.Id == item.Id))
                         {
                             repository.Delete(item.Id);
                             actualizado = true;
                         }
+                    }
+
+                    if (actualizado){
+                        VuelosActualizados?.Invoke(repository.GetAll().ToList());
                     }
                 }
             }
@@ -94,7 +98,7 @@ namespace PantallaVueloMAUI.Services
                     else
                         repository.Update(item);
                 }
-                foreach (var item in vuelos)
+                foreach (var item in repository.GetAll())
                 {
                     if (!vuelos.Any(x => x.Id == item.Id))
                     {
