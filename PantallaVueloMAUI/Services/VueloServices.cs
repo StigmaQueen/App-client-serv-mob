@@ -106,7 +106,7 @@ namespace PantallaVueloMAUI.Services
                     }
                 }
             }
-            return repository.GetAll();
+            return repository.GetAll().ToList();
         }
         public async Task<bool> PostAsync(Vuelo v)
         {
