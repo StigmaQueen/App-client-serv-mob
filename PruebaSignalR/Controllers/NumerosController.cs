@@ -15,14 +15,15 @@ namespace PruebaSignalR.Controllers
             numeroshub = context;
         }
         [HttpGet("Incrementar")]
-        public IActionResult Incrementar()
+        public async Task<IActionResult> Incrementar()
         {
-            numeroshub.Clients.All.SendAsync("incrementar");
+          await  numeroshub.Clients.All.SendAsync("incrementar");
             return Ok();
         }
         [HttpGet("Decrementar")]
-        public IActionResult Decrementar()
+        public async Task< IActionResult> Decrementar()
         {
+           await numeroshub.Clients.All.SendAsync("decrementar");
             return Ok();
         }
     }
