@@ -1,0 +1,123 @@
+<?xml version="1.0" encoding="utf-8" ?>
+<ContentPage xmlns="http://schemas.microsoft.com/dotnet/2021/maui"
+             xmlns:x="http://schemas.microsoft.com/winfx/2009/xaml"
+             x:Class="RifasMauiApp.Views.MainView"
+             Title="MainView" Background="darkGray">
+
+    <ContentPage.Resources>
+        <Style TargetType="Label">
+            <Setter Property="TextColor" Value="Black"></Setter>
+        </Style>
+    </ContentPage.Resources>
+    
+    <Frame Margin="15" BorderColor="Black" CornerRadius="0">
+        <Grid RowDefinitions="auto,*" BackgroundColor="LightPink">
+           
+            <VerticalStackLayout>
+                <Label  Text="GRAN RIFA ENTRE MIS AMISTADES MAS LEALES UWU" FontSize="Header" HorizontalOptions="Center" Margin="5"></Label>
+                <Grid BackgroundColor="Pink" ColumnDefinitions="50,.7*,.3*,80">
+                <Label   HorizontalTextAlignment="Center" Background="white" Margin="1" Text="Num."></Label>
+                <Label  HorizontalTextAlignment="Center" Background="white" Margin="1" Grid.Column="1" Text="Nombre"></Label>
+                <Label   HorizontalTextAlignment="Center" Background="white" Margin="1" Grid.Column="2" Text="Telefono"></Label>
+                <Label   HorizontalTextAlignment="Center" Background="white" Margin="1" Grid.Column="3" Text="Pagado"></Label>
+             </Grid>
+            </VerticalStackLayout>
+   
+            <ScrollView Grid.Row="1">
+                <VerticalStackLayout Spacing="0">
+                    <Grid BackgroundColor="Pink" ColumnDefinitions="50,.7*,.3*,80">
+                        <Label HorizontalTextAlignment="Center" Background="white" Margin="1" Text="001"></Label>
+                        <Label HorizontalTextAlignment="Center" Background="white" Margin="1" Grid.Column="1" Text="Ilse Briones"></Label>
+                        <Label HorizontalTextAlignment="Center" Background="white" Margin="1" Grid.Column="2" Text="125-555-5255"></Label>
+                        <Label HorizontalTextAlignment="Center" Background="white" Margin="1" Grid.Column="3" Text=""></Label>
+                    </Grid>
+                    <Grid BackgroundColor="Pink" ColumnDefinitions="50,.7*,.3*,80">
+                        <Label HorizontalTextAlignment="Center" Background="white" Margin="1" Text="001"></Label>
+                        <Label HorizontalTextAlignment="Center" Background="white" Margin="1" Grid.Column="1" Text="Ilse Briones"></Label>
+                        <Label HorizontalTextAlignment="Center" Background="white" Margin="1" Grid.Column="2" Text="125-555-5255"></Label>
+                        <Label HorizontalTextAlignment="Center" Background="white" Margin="1" Grid.Column="3" Text=""></Label>
+                    </Grid>
+                    <Grid BackgroundColor="Pink" ColumnDefinitions="50,.7*,.3*,80">
+                        <Label HorizontalTextAlignment="Center" Background="white" Margin="1" Text="001"></Label>
+                        <Label HorizontalTextAlignment="Center" Background="white" Margin="1" Grid.Column="1" Text="Ilse Briones"></Label>
+                        <Label HorizontalTextAlignment="Center" Background="white" Margin="1" Grid.Column="2" Text="125-555-5255"></Label>
+                        <Label HorizontalTextAlignment="Center" Background="white" Margin="1" Grid.Column="3" Text=""></Label>
+                    </Grid>
+                    <Grid BackgroundColor="Pink" ColumnDefinitions="50,.7*,.3*,80">
+                        <Label HorizontalTextAlignment="Center" Background="white" Margin="1" Text="001"></Label>
+                        <Label HorizontalTextAlignment="Center" Background="white" Margin="1" Grid.Column="1" Text="Ilse Briones"></Label>
+                        <Label HorizontalTextAlignment="Center" Background="white" Margin="1" Grid.Column="2" Text="125-555-5255"></Label>
+                        <Label HorizontalTextAlignment="Center" Background="white" Margin="1" Grid.Column="3" Text=""></Label>
+                    </Grid>
+                    <Grid BackgroundColor="Pink" ColumnDefinitions="50,.7*,.3*,80">
+                        <Label HorizontalTextAlignment="Center" Background="white" Margin="1" Text="001"></Label>
+                        <Label HorizontalTextAlignment="Center" Background="white" Margin="1" Grid.Column="1" Text="Ilse Briones"></Label>
+                        <Label HorizontalTextAlignment="Center" Background="white" Margin="1" Grid.Column="2" Text="125-555-5255"></Label>
+                        <Label HorizontalTextAlignment="Center" Background="white" Margin="1" Grid.Column="3" Text=""></Label>
+                    </Grid>
+                    <Grid BackgroundColor="Pink" ColumnDefinitions="50,.7*,.3*,80">
+                        <Label HorizontalTextAlignment="Center" Background="white" Margin="1" Text="001"></Label>
+                        <Label HorizontalTextAlignment="Center" Background="white" Margin="1" Grid.Column="1" Text="Ilse Briones"></Label>
+                        <Label HorizontalTextAlignment="Center" Background="white" Margin="1" Grid.Column="2" Text="125-555-5255"></Label>
+                        <Label HorizontalTextAlignment="Center" Background="white" Margin="1" Grid.Column="3" Text=""></Label>
+                    </Grid>
+                    <Grid BackgroundColor="Pink" ColumnDefinitions="50,.7*,.3*,80">
+                        <Label HorizontalTextAlignment="Center" Background="white" Margin="1" Text="001"></Label>
+                        <Label HorizontalTextAlignment="Center" Background="white" Margin="1" Grid.Column="1" Text="Ilse Briones"></Label>
+                        <Label HorizontalTextAlignment="Center" Background="white" Margin="1" Grid.Column="2" Text="125-555-5255"></Label>
+                        <Label HorizontalTextAlignment="Center" Background="white" Margin="1" Grid.Column="3" Text=""></Label>
+                    </Grid>
+                    <Grid BackgroundColor="Pink" ColumnDefinitions="50,.7*,.3*,80">
+                        <Label HorizontalTextAlignment="Center" Background="white" Margin="1" Text="001"></Label>
+                        <Label HorizontalTextAlignment="Center" Background="white" Margin="1" Grid.Column="1" Text="Ilse Briones"></Label>
+                        <Label HorizontalTextAlignment="Center" Background="white" Margin="1" Grid.Column="2" Text="125-555-5255"></Label>
+                        <Label HorizontalTextAlignment="Center" Background="white" Margin="1" Grid.Column="3" Text=""></Label>
+                    </Grid>
+                    <Grid BackgroundColor="Pink" ColumnDefinitions="50,.7*,.3*,80">
+                        <Label HorizontalTextAlignment="Center" Background="white" Margin="1" Text="001"></Label>
+                        <Label HorizontalTextAlignment="Center" Background="white" Margin="1" Grid.Column="1" Text="Ilse Briones"></Label>
+                        <Label HorizontalTextAlignment="Center" Background="white" Margin="1" Grid.Column="2" Text="125-555-5255"></Label>
+                        <Label HorizontalTextAlignment="Center" Background="white" Margin="1" Grid.Column="3" Text=""></Label>
+                    </Grid>
+                    <Grid BackgroundColor="Pink" ColumnDefinitions="50,.7*,.3*,80">
+                        <Label HorizontalTextAlignment="Center" Background="white" Margin="1" Text="001"></Label>
+                        <Label HorizontalTextAlignment="Center" Background="white" Margin="1" Grid.Column="1" Text="Ilse Briones"></Label>
+                        <Label HorizontalTextAlignment="Center" Background="white" Margin="1" Grid.Column="2" Text="125-555-5255"></Label>
+                        <Label HorizontalTextAlignment="Center" Background="white" Margin="1" Grid.Column="3" Text=""></Label>
+                    </Grid>
+                    <Grid BackgroundColor="Pink" ColumnDefinitions="50,.7*,.3*,80">
+                        <Label HorizontalTextAlignment="Center" Background="white" Margin="1" Text="001"></Label>
+                        <Label HorizontalTextAlignment="Center" Background="white" Margin="1" Grid.Column="1" Text="Ilse Briones"></Label>
+                        <Label HorizontalTextAlignment="Center" Background="white" Margin="1" Grid.Column="2" Text="125-555-5255"></Label>
+                        <Label HorizontalTextAlignment="Center" Background="white" Margin="1" Grid.Column="3" Text=""></Label>
+                    </Grid>
+                    <Grid BackgroundColor="Pink" ColumnDefinitions="50,.7*,.3*,80">
+                        <Label HorizontalTextAlignment="Center" Background="white" Margin="1" Text="001"></Label>
+                        <Label HorizontalTextAlignment="Center" Background="white" Margin="1" Grid.Column="1" Text="Ilse Briones"></Label>
+                        <Label HorizontalTextAlignment="Center" Background="white" Margin="1" Grid.Column="2" Text="125-555-5255"></Label>
+                        <Label HorizontalTextAlignment="Center" Background="white" Margin="1" Grid.Column="3" Text=""></Label>
+                    </Grid>
+                    <Grid BackgroundColor="Pink" ColumnDefinitions="50,.7*,.3*,80">
+                        <Label HorizontalTextAlignment="Center" Background="white" Margin="1" Text="001"></Label>
+                        <Label HorizontalTextAlignment="Center" Background="white" Margin="1" Grid.Column="1" Text="Ilse Briones"></Label>
+                        <Label HorizontalTextAlignment="Center" Background="white" Margin="1" Grid.Column="2" Text="125-555-5255"></Label>
+                        <Label HorizontalTextAlignment="Center" Background="white" Margin="1" Grid.Column="3" Text=""></Label>
+                    </Grid>
+                    <Grid BackgroundColor="Pink" ColumnDefinitions="50,.7*,.3*,80">
+                        <Label HorizontalTextAlignment="Center" Background="white" Margin="1" Text="001"></Label>
+                        <Label HorizontalTextAlignment="Center" Background="white" Margin="1" Grid.Column="1" Text="Ilse Briones"></Label>
+                        <Label HorizontalTextAlignment="Center" Background="white" Margin="1" Grid.Column="2" Text="125-555-5255"></Label>
+                        <Label HorizontalTextAlignment="Center" Background="white" Margin="1" Grid.Column="3" Text=""></Label>
+                    </Grid>
+                    <Grid BackgroundColor="Pink" ColumnDefinitions="50,.7*,.3*,80">
+                        <Label HorizontalTextAlignment="Center" Background="white" Margin="1" Text="001"></Label>
+                        <Label HorizontalTextAlignment="Center" Background="white" Margin="1" Grid.Column="1" Text="Ilse Briones"></Label>
+                        <Label HorizontalTextAlignment="Center" Background="white" Margin="1" Grid.Column="2" Text="125-555-5255"></Label>
+                        <Label HorizontalTextAlignment="Center" Background="white" Margin="1" Grid.Column="3" Text=""></Label>
+                    </Grid>
+                </VerticalStackLayout>
+            </ScrollView>
+        </Grid>
+    </Frame>
+
+</ContentPage>

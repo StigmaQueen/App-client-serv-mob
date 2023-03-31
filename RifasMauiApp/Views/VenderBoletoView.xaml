@@ -1,0 +1,24 @@
+<?xml version="1.0" encoding="utf-8" ?>
+<ContentPage xmlns="http://schemas.microsoft.com/dotnet/2021/maui"
+             xmlns:x="http://schemas.microsoft.com/winfx/2009/xaml"
+             x:Class="RifasMauiApp.Views.VenderBoletoView"
+             Title="VenderBoletoView" Background="darkgray">
+    <ContentPage.Resources>
+        <Style TargetType="Label">
+            <Setter Property="TextColor" Value="Black"></Setter>
+        </Style>
+    </ContentPage.Resources>
+    <Frame BorderColor="Black" >
+        <VerticalStackLayout BackgroundColor="pink" Margin="15">
+            <Label Text="Vender Boleto" HorizontalTextAlignment="Center" FontAttributes="Bold" FontSize="Large"></Label>
+            <Label Text="Numero:"></Label>
+            <Picker></Picker>
+            <Label Text="Nombre:"></Label>
+            <Entry></Entry>
+            <Label>Telefono:</Label>
+            <Entry Keyboard="Telephone"></Entry>
+            <Label>Pagado</Label>
+            <CheckBox></CheckBox>
+        </VerticalStackLayout>
+    </Frame>
+</ContentPage>
