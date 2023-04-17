@@ -6,7 +6,7 @@ using System.Threading.Tasks;
 
 namespace RifasMauiApp.Models
 {
-    internal class BoletoDTO
+    public class BoletoDTO
     {
         public int Id { get; set; }
 
