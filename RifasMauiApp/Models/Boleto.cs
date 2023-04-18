@@ -9,7 +9,7 @@ using System.Threading.Tasks;
 
 namespace RifasMauiApp.Models
 {
-    internal class Boleto
+    public class Boleto
     {
         [PrimaryKey]
         public int Id { get; set; }
