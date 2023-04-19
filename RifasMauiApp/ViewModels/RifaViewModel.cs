@@ -33,6 +33,7 @@ namespace RifasMauiApp.ViewModels
             if (Connectivity.Current.NetworkAccess == NetworkAccess.Internet)
             {
                 var vendidos = await services.GetAll();
+                //Genera los boletos en blanco
                 if (Boletos.Count < 50)
                 {
                     for (int i = 1; i < 50; i++)
@@ -43,6 +44,20 @@ namespace RifasMauiApp.ViewModels
                         };
                         Boletos.Add(b); 
                     }
+                }
+
+                //
+                foreach (var bv in vendidos)
+                {
+                    Boleto bvendido = new Boleto
+                    {
+                        Id= bv.Id,  
+                        NombrePersona = bv.NombrePersona,   
+                        NumeroBoleto= bv.NumeroBoleto,
+                        NumeroTelefono= bv.NumeroTelefono,
+                        Pagado=bv.Pagado==1
+                    };
+                    Boletos[(int)(bvendido.NumeroBoleto-1)]=bvendido;  
                 }
             }
             else

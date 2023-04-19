@@ -20,7 +20,7 @@ namespace RifasMauiApp.Services
         }
         public async Task<IEnumerable<BoletoDTO>> GetAll()
         {
-            var response = await Client.GetAsync("api/rifas/vendidos");
+            var response = await Client.GetAsync("api/rifa/vendidos");
             response.EnsureSuccessStatusCode();//Verificar que regreso un 200
             var json = await response.Content.ReadAsStringAsync();
             var datos = JsonConvert.DeserializeObject<List<BoletoDTO>>(json);
@@ -30,17 +30,17 @@ namespace RifasMauiApp.Services
         {
             //validar 
 
-            await Send("api/rifas/vender", bo, HttpMethod.Post);
+            await Send("api/rifa/vender", bo, HttpMethod.Post);
         }
         public async void Put(BoletoDTO bo)
         {
-            await Send("api/rifas/pagar", bo, HttpMethod.Put);
+            await Send("api/rifa/pagar", bo, HttpMethod.Put);
         }
 
 
         public async void Delete(BoletoDTO bo)
         {
-            await Send("api/rifas/cancelar", bo, HttpMethod.Put);
+            await Send("api/rifa/cancelar", bo, HttpMethod.Put);
             //en cancelar no eliminamos, solo editamos para que los cancelados no salgan en el get all
         }
         async Task Send(string url, object dto, HttpMethod method)
