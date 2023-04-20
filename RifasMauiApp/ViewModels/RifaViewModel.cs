@@ -27,7 +27,26 @@ namespace RifasMauiApp.ViewModels
         public RifaViewModel() 
         {
             DescargarBoletos();
-        }  
+            NuevaVentaCommand = new Command<Boleto>(NuevaVenta);
+            VenderCommand = new Command(Vender);
+        }
+
+        private void Vender(object obj)
+        {
+            throw new NotImplementedException();
+        }
+
+        private async void NuevaVenta(Boleto b)
+        {
+            if (b.Id == 0)
+            {
+                Boleto= b;
+                PropertyChanged?.Invoke(this, new PropertyChangedEventArgs(nameof(Error)));
+                await Shell.Current.GoToAsync("//Agregar");
+            }
+           
+        }
+
         async void DescargarBoletos()
         {
             if (Connectivity.Current.NetworkAccess == NetworkAccess.Internet)

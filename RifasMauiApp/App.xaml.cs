@@ -6,7 +6,8 @@
         {
             InitializeComponent();
 
-            MainPage = new Views.MainView();
+            MainPage = new AppShell();
+            Routing.RegisterRoute("//Agregar", typeof(Views.VenderBoletoView));
         }
     }
 }
