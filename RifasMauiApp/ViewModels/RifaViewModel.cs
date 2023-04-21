@@ -18,6 +18,8 @@ namespace RifasMauiApp.ViewModels
         public ObservableCollection<Boleto> Boletos { get; set; } = new ObservableCollection<Boleto>();
         public Boleto Boleto { get; set; }  
         public string Error { get; set; }   
+
+        public IEnumerable<uint> BoletosSinVender =>Boletos.Where(x=>x.Id==0).Select(x=>x.NumeroBoleto).ToList();
         public ICommand VenderCommand { get; set; }
         public ICommand PagarCommand { get; set; }
         public ICommand NuevaVentaCommand { get; set; } 
@@ -31,9 +33,26 @@ namespace RifasMauiApp.ViewModels
             VenderCommand = new Command(Vender);
         }
 
-        private void Vender(object obj)
+        private async void Vender(object obj)
         {
-            throw new NotImplementedException();
+            try
+            {
+                if (Connectivity.Current.NetworkAccess == NetworkAccess.Internet)
+                {
+                    BoletoDTO dto = new BoletoDTO()
+                    {
+                        NombrePersona = Boleto.NombrePersona,
+                        NumeroBoleto = Boleto.NumeroBoleto,
+                        Pagado = Boleto.Pagado ? 1ul : 0ul,
+                    };
+                    services.Post(dto);
+                    await Shell.Current.GoToAsync("//Main");
+                }
+            }
+            catch(Exception ex) 
+            {
+                Error = ex.Message; 
+            }
         }
 
         private async void NuevaVenta(Boleto b)
@@ -41,7 +60,7 @@ namespace RifasMauiApp.ViewModels
             if (b.Id == 0)
             {
                 Boleto= b;
-                PropertyChanged?.Invoke(this, new PropertyChangedEventArgs(nameof(Error)));
+                PropertyChanged?.Invoke(this, new PropertyChangedEventArgs(null));
                 await Shell.Current.GoToAsync("//Agregar");
             }
            

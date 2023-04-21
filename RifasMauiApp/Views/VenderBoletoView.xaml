@@ -16,9 +16,11 @@
             <Label Text="Nombre:"></Label>
             <Entry></Entry>
             <Label>Telefono:</Label>
-            <Entry Keyboard="Telephone"></Entry>
+            <Entry ></Entry>
             <Label>Pagado</Label>
             <CheckBox></CheckBox>
+
+            <Button Text="Vender"></Button>
         </VerticalStackLayout>
     </Frame>
 </ContentPage>
