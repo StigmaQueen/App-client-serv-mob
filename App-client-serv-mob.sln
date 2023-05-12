@@ -5,7 +5,7 @@ VisualStudioVersion = 17.4.33205.214
 MinimumVisualStudioVersion = 10.0.40219.1
 Project("{9A19103F-16F7-4668-BE54-9A1E7A4F7556}") = "ToDoListU1-E1", "ToDoListU1-E1\ToDoListU1-E1.csproj", "{B0248C5E-A5CB-4597-B93C-8ACD20E2FA9E}"
 EndProject
-Project("{2150E333-8FDC-42A3-9474-1A3956D46DE8}") = "Unidad1", "Unidad1", "{9E8D7BB9-5A22-40A9-BB83-BFB5D57B4F78}"
+Project("{2150E333-8FDC-42A3-9474-1A3956D46DE8}") = "Unidad 1", "Unidad 1", "{9E8D7BB9-5A22-40A9-BB83-BFB5D57B4F78}"
 EndProject
 Project("{9A19103F-16F7-4668-BE54-9A1E7A4F7556}") = "PandientesApp", "PandientesApp\PandientesApp.csproj", "{C8834E2F-1BDB-4972-8432-3D9523429266}"
 EndProject
@@ -21,7 +21,11 @@ Project("{9A19103F-16F7-4668-BE54-9A1E7A4F7556}") = "PruebaSignalRMaui", "Prueba
 EndProject
 Project("{9A19103F-16F7-4668-BE54-9A1E7A4F7556}") = "EjercisioRifas", "EjercisioRifas\EjercisioRifas.csproj", "{B4AC332F-74F2-4675-9132-91A937CAC413}"
 EndProject
-Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "RifasMauiApp", "RifasMauiApp\RifasMauiApp.csproj", "{770FE349-A9EC-4460-A4E1-D7794FC41CB6}"
+Project("{9A19103F-16F7-4668-BE54-9A1E7A4F7556}") = "RifasMauiApp", "RifasMauiApp\RifasMauiApp.csproj", "{770FE349-A9EC-4460-A4E1-D7794FC41CB6}"
+EndProject
+Project("{2150E333-8FDC-42A3-9474-1A3956D46DE8}") = "Unidad 3", "Unidad 3", "{E91DF8A4-46DE-4F89-9054-46B7D2CE3466}"
+EndProject
+Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "APIDocentes", "APIDocentes\APIDocentes.csproj", "{4A3A2113-A202-4F43-B35B-DD2AB683F71C}"
 EndProject
 Global
 	GlobalSection(SolutionConfigurationPlatforms) = preSolution
@@ -69,6 +73,10 @@ Global
 		{770FE349-A9EC-4460-A4E1-D7794FC41CB6}.Release|Any CPU.ActiveCfg = Release|Any CPU
 		{770FE349-A9EC-4460-A4E1-D7794FC41CB6}.Release|Any CPU.Build.0 = Release|Any CPU
 		{770FE349-A9EC-4460-A4E1-D7794FC41CB6}.Release|Any CPU.Deploy.0 = Release|Any CPU
+		{4A3A2113-A202-4F43-B35B-DD2AB683F71C}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
+		{4A3A2113-A202-4F43-B35B-DD2AB683F71C}.Debug|Any CPU.Build.0 = Debug|Any CPU
+		{4A3A2113-A202-4F43-B35B-DD2AB683F71C}.Release|Any CPU.ActiveCfg = Release|Any CPU
+		{4A3A2113-A202-4F43-B35B-DD2AB683F71C}.Release|Any CPU.Build.0 = Release|Any CPU
 	EndGlobalSection
 	GlobalSection(SolutionProperties) = preSolution
 		HideSolutionNode = FALSE
@@ -82,6 +90,7 @@ Global
 		{CB8B46E0-0A1D-4C16-B622-ADAE27FB398E} = {84D6B388-C976-449A-B7C3-03451EFE3740}
 		{B4AC332F-74F2-4675-9132-91A937CAC413} = {84D6B388-C976-449A-B7C3-03451EFE3740}
 		{770FE349-A9EC-4460-A4E1-D7794FC41CB6} = {84D6B388-C976-449A-B7C3-03451EFE3740}
+		{4A3A2113-A202-4F43-B35B-DD2AB683F71C} = {E91DF8A4-46DE-4F89-9054-46B7D2CE3466}
 	EndGlobalSection
 	GlobalSection(ExtensibilityGlobals) = postSolution
 		SolutionGuid = {7B347C1B-AF6E-4301-BB7B-EBE14E6A9629}
