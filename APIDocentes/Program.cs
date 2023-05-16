@@ -16,7 +16,7 @@ builder.Services.AddDbContext<ItesrcneDocentesContext>(optionsBuilder => options
 
 string issur = "docentes.itesrc.net";
 string audience = "mauidocentes";
-var secret = new SymmetricSecurityKey(Encoding.UTF8.GetBytes("DocentesKey"));
+var secret = new SymmetricSecurityKey(Encoding.UTF8.GetBytes("DocentesKeyMoviles83G"));
 
 builder.Services.AddAuthentication(JwtBearerDefaults.AuthenticationScheme).AddJwtBearer(jwt =>
 {
