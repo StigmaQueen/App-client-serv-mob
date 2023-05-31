@@ -10,15 +10,17 @@ namespace MauiDocentes.Services
 {
     public class LoginServices
     {
+        private readonly AuthService auth;
         private string url = "https://docentes.itesrc.net/";
-        private HttpClient client= new HttpClient();    
-        public LoginServices()
+        private HttpClient client = new HttpClient();
+        public LoginServices(AuthService auth)
         {
             client.BaseAddress = new Uri(url);
+            this.auth = auth;
         }
-        public async Task <bool> login(LoginDTO dto)
+        public async Task<bool> Login(LoginDTO dto)
         {
-            if(string.IsNullOrEmpty(dto.Contraseña) || string.IsNullOrEmpty(dto.Usuario))
+            if (string.IsNullOrEmpty(dto.Contraseña) || string.IsNullOrEmpty(dto.Usuario))
             {
                 throw new ArgumentException("Escriba el nombre de usuario y contraseña");
             }
@@ -26,12 +28,21 @@ namespace MauiDocentes.Services
             if (response.IsSuccessStatusCode)
             {
                 ///Inicie sesión  y me va a devolver el token 
-                var token = await response.Content.ReadFromJsonAsync<string>();
+                var token = await response.Content.ReadAsStringAsync();
+
+                auth.WriteToken(token);
+                return true;
             }
             else
             {
-                return false;   
+                var message = response.Content.ReadAsStringAsync();
+                return false;
             }
+        }
+        public void Logout()
+        {
+            auth.RemoveToken();
+            Shell.Current.GoToAsync("/login");
         }
     }
 }

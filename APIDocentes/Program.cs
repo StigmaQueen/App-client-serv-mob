@@ -37,3 +37,4 @@ builder.Services.AddAuthentication();
 app.MapControllers();
 app.UseAuthentication();
 app.Run();
+

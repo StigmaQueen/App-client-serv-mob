@@ -1,0 +1,24 @@
+<?xml version="1.0" encoding="utf-8" ?>
+<ContentPage xmlns="http://schemas.microsoft.com/dotnet/2021/maui"
+             xmlns:x="http://schemas.microsoft.com/winfx/2009/xaml"
+             x:Class="MauiDocentes.Views.Docentes.DocentesView"
+             Title="DocentesView">
+    <Grid RowDefinitions="auto, *" Padding="5">
+        <VerticalStackLayout Padding="2">
+            <Label Text="DIVISION ACADEMICA DE INGENIERA EN SISTEMAS COMPUTACIONALES" FontSize="Header"
+                   HorizontalOptions="Center">
+            </Label>
+            <Label Text="sistemas@hotmail.com" HorizontalOptions="Center"></Label>
+            <CollectionView Grid.Row="1">
+                <CollectionView.ItemTemplate>
+                    <DataTemplate>
+                        <Grid ColumnDefinitions="100,*" ColumnSpacing="5">
+                            <Label Text="Clave"></Label>
+                            <Label Text="Nombre"></Label>
+                        </Grid>
+                    </DataTemplate>
+                </CollectionView.ItemTemplate>
+            </CollectionView>
+        </VerticalStackLayout>
+    </Grid>
+</ContentPage>

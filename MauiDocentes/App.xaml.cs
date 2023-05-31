@@ -1,12 +1,15 @@
-﻿namespace MauiDocentes
+﻿
+using MauiDocentes.Services;
+
+namespace MauiDocentes
 {
     public partial class App : Application
     {
-        public App()
+        public App(AuthService auth, LoginServices login)
         {
             InitializeComponent();
 
-            MainPage = new AppShell();
+            MainPage = new AppShell(auth,login);
         }
     }
 }

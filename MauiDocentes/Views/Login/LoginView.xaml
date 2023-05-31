@@ -1,0 +1,21 @@
+<?xml version="1.0" encoding="utf-8" ?>
+<ContentPage xmlns="http://schemas.microsoft.com/dotnet/2021/maui"
+             xmlns:x="http://schemas.microsoft.com/winfx/2009/xaml"
+             xmlns:vm="clr-namespace:MauiDocentes.ViewModels"
+             x:Class="MauiDocentes.Views.Login.LoginView" x:DataType="vm:LoginViewModel"
+             Title="LoginView">
+    <VerticalStackLayout Margin="1" Spacing="5">
+        
+        <Label Text="Nombre de usuario:"></Label>
+        <Entry Text="{Binding Credenciales.Usuario}"></Entry>
+
+        <Label Text="Contraseña:"></Label>
+        <Entry Text="{Binding Credenciales.Contraseña}" IsPassword="True"></Entry>
+
+        <Button Command="{Binding LoginCommand }" Text="Iniciar sesión"></Button>
+
+
+        <Entry Text="{Binding Mensaje}" Margin="10" FontSize="Small" 
+               TextColor="Red" HorizontalTextAlignment="Center"></Entry>
+    </VerticalStackLayout>
+</ContentPage>
